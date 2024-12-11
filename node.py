@@ -25,61 +25,6 @@ class Node():
 
     def get_team(self):
         return self.team
-    # @property
-    # def children(self):
-    #     return self.children
-    
-    # @children.setter
-    # def children(self, children):
-    #     self.children = children
-
-    # @property
-    # def w(self):
-    #     return self.w
-    
-    # @w.setter
-    # def w(self, w):
-    #     self.w = w
-
-    # @property
-    # def n(self):
-    #     return self.n
-
-    # @n.setter
-    # def n(self, n):
-    #     self.n = n
-        
-    # @property
-    # def gamestate(self):
-    #     return self.gamestate
-    
-    # @gamestate.setter
-    # def gamestate(self, gamestate):
-    #     self.gamestate = gamestate
-        
-    # @property
-    # def winner(self):
-    #     return self.winner
-    
-    # @winner.setter
-    # def winner(self, winner):
-    #     self.winner = winner
-        
-    # @property
-    # def parent(self):
-    #     return self.parent
-    
-    # @parent.setter
-    # def parent(self, parent):
-    #     self.parent = parent
-    
-    # @property
-    # def team(self):
-    #     return self.team
-
-    # @team.setter
-    # def team(self, team):
-    #     self.team = team
 
     def set_children(self, child):
         self.children = child
@@ -89,7 +34,6 @@ class Node():
         # Los nodos que no se han explorado tienen un valor máximo para favorecer la exploración
         if self.n == 0:
             return None
-
         return (self.w / self.n) + c * np.sqrt(
             np.log(self.parent.n) / self.n
         )  # Fórmula mágica de los apuntes

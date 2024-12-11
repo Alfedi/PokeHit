@@ -5,7 +5,7 @@ from vgc.ecosystem.ChampionshipEcosystem import ChampionshipEcosystem
 from vgc.util.generator.PkmRosterGenerators import RandomPkmRosterGenerator
 from MCTSCompetitor import MCTSCompetitor
 
-N_OPPONENTS = 20 # 15 - 20
+N_OPPONENTS = 20  # 15 - 20
 
 
 def main():
@@ -15,7 +15,6 @@ def main():
     meta_data = StandardMetaData()
     meta_data.set_moves_and_pkm(roster, move_roster)
     ce = ChampionshipEcosystem(roster, meta_data, debug=False)
-    
 
     mtcs_competitor = CompetitorManager(MCTSCompetitor("MCTS"))
     ce.register(mtcs_competitor)
@@ -27,7 +26,10 @@ def main():
     ce.run(n_epochs=10, n_league_epochs=10)
 
     dict = {competitor.competitor.name: competitor.elo for competitor in ce.league.competitors}
-    print(sorted(dict.items(), key=lambda x: x[1], reverse=True))
+    file = open("clasificacion.txt", "a")
+    file.write(str(sorted(dict.items(), key=lambda x: x[1], reverse=True)) + " \n")
+    file.close()
+
     # print([competitor.competitor.name for competitor in ce.league.competitors ])
     # print([competitor.elo for competitor in ce.league.competitors ])
     print(ce.strongest().competitor.name)
