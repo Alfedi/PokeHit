@@ -5,7 +5,7 @@ from vgc.ecosystem.ChampionshipEcosystem import ChampionshipEcosystem
 from vgc.util.generator.PkmRosterGenerators import RandomPkmRosterGenerator
 from MCTSCompetitor import MCTSCompetitor
 
-N_OPPONENTS = 20  # 15 - 20
+N_OPPONENTS = 19  # 15 - 20 total
 
 
 def main():
